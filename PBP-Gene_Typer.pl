@@ -334,7 +334,7 @@ chomp($justName);
 # ###
 # The number of non-aligning bases at each end of the matching target sequence will recorded in the header name.###
 
-system("./ExtractGene.pl -i $fasta -q $PBP_DB -L 0.95 -o $outDir");
+system("ExtractGene.pl -i $fasta -q $PBP_DB -L 0.95 -o $outDir");
 chdir "$outDir";
 my $PBP_output = "TEMP_pbpID_Results.txt";
 open(my $fh, '>', $PBP_output) or die "Could not open file '$PBP_output' $!";
