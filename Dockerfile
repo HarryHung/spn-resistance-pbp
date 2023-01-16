@@ -72,12 +72,12 @@ COPY to_json.pl /predictor/
 
 COPY transeq.pl /predictor/
 
-COPY spn_pbp /predictor/
+COPY spn_pbp_amr /predictor/
 
 RUN cd /predictor \
       && chmod +x *.sh \
       && chmod +x *.pl \
-      && chmod +x spn_pbp
+      && chmod +x spn_pbp_amr
 
 ENV PATH /predictor:$PATH
 
