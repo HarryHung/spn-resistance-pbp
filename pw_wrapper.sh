@@ -18,8 +18,7 @@ just_name=$(basename "$sample_out")
 PBP-Gene_Typer.pl -f ${assembly} -r ${allDB_dir}/MOD_bLactam_resistance.fasta -o ${sample_out} -n ${just_name} -s SPN -p 1A,2B,2X
 
 ###Predict bLactam MIC###
-scr1="${temp_path}/bLactam_MIC_Rscripts/PBP_AA_sampledir_to_MIC_20180710.sh"
-bash "${scr1}" "$sample_out" "$temp_path"
+bash "PBP_AA_sampledir_to_MIC_20180710.sh" "$sample_out" "$temp_path"
 
 ###Output the emm type/MLST/drug resistance data for this sample to it's results output file###
 tabl_out="TABLE_Isolate_Typing_results.txt"

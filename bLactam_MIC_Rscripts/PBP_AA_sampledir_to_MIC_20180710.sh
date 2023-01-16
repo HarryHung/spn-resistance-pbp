@@ -58,12 +58,11 @@ grep -v ">" temp1.faa >> Sample_PBP2X_AA.faa
 rm -f temp*
 
 #
-scr1="${data_dir}/AAtoMICwrapper_2.sh"
-bash "${scr1}" "${AAseqDir}" "${data_dir}"
+bash "AAtoMICwrapper_2.sh" "${AAseqDir}" "${data_dir}"
 
 #
 fin="$AAseqDir"/Sample_PBPtype_MIC2_Prediction.csv
-scr1="$path/bLactam_MIC_Rscripts/MIC_format_with_SIR.R"
+scr1="/predictor/bLactam_MIC_Rscripts/MIC_format_with_SIR.R"
 Rscript "${scr1}" "${fin}"
 fout="$AAseqDir"/Sample_PBPtype_MIC2_Prediction.csv_MIC_formatted_with_SIR.csv
 
