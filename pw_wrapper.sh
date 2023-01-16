@@ -22,7 +22,7 @@ bash "PBP_AA_sampledir_to_MIC_20180710.sh" "$sample_out" "$temp_path"
 
 ###Output the emm type/MLST/drug resistance data for this sample to it's results output file###
 tabl_out="TABLE_Isolate_Typing_results.txt"
-printf "${just_name}\t" >> "${tabl_out}"
+printf "predictor\t" >> "${tabl_out}"
 
 ###PBP_ID Output###
 justPBPs="NF"
