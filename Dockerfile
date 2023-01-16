@@ -72,15 +72,13 @@ COPY to_json.pl /predictor/
 
 COPY transeq.pl /predictor/
 
-COPY entrypoint.sh /predictor/
+COPY spn_pbp_amr /predictor/
 
 RUN cd /predictor \
       && chmod +x *.sh \
-      && chmod +x *.pl
+      && chmod +x *.pl \
+      && chmod +x spn_pbp_amr
 
 ENV PATH /predictor:$PATH
 
-WORKDIR /predictor/
-
-#ENTRYPOINT ["/bin/bash"]
-ENTRYPOINT ["/predictor/entrypoint.sh"]
+ENV PATH /predictor/bLactam_MIC_Rscripts/:$PATH

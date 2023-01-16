@@ -2,18 +2,7 @@
 
 echoerr() { printf "%s\n" "$*" >&2; }
 
-x1="0"
-if [ -d "$1" ]; then
-if [ -s "$1""/Sample_PBP1A_AA.faa" ]; then
-if [ -s "$1""/Sample_PBP2B_AA.faa" ]; then
-if [ -s "$1""/Sample_PBP2X_AA.faa" ]; then
-x1="1"
-fi
-fi
-fi
-fi
-
-if [ "$x1" == "1" ]; then
+if [ -d "$1" ] && [ -s "$1""/Sample_PBP1A_AA.faa" ] && [ -s "$1""/Sample_PBP2B_AA.faa" ] && [ -s "$1""/Sample_PBP2X_AA.faa" ]; then
   AAseqDir=$1
   data_dir=$2
   echoerr "Data folder is $AAseqDir"

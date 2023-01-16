@@ -155,7 +155,7 @@ sub PBP_blastTyper {
     my $db_path = dirname($PBP_DB);
     my $blastDB_name = "Blast_bLactam_" . $pbp_type . "_prot_DB";
     my $blast_seq = $species . "_bLactam_" . $pbp_type . "-DB.faa";
-    my $blast_out = "TEMP_" . $outName . "_blast-out_" . $pbp_type . ".txt";
+    my $blast_out = "TEMP_" . "_blast-out_" . $pbp_type . ".txt";
     print STDERR "Blast DB name: $db_path/$blastDB_name\n";
     if (!(glob("$db_path/$blastDB_name*"))) {
         print STDERR "Need to make a new Blast database\n";
@@ -334,7 +334,7 @@ chomp($justName);
 # ###
 # The number of non-aligning bases at each end of the matching target sequence will recorded in the header name.###
 
-system("./ExtractGene.pl -i $fasta -q $PBP_DB -L 0.95 -o $outDir");
+system("ExtractGene.pl -i $fasta -q $PBP_DB -L 0.95 -o $outDir");
 chdir "$outDir";
 my $PBP_output = "TEMP_pbpID_Results.txt";
 open(my $fh, '>', $PBP_output) or die "Could not open file '$PBP_output' $!";

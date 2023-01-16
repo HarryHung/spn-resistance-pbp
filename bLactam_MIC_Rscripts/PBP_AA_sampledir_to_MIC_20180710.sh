@@ -2,18 +2,7 @@
 
 echoerr() { printf "%s\n" "$*" >&2; }
 
-x1="0"
-if [ -d "$1" ]; then
-if [ -s "$1""/EXTRACT_1A-S2_target.fasta" ]; then
-if [ -s "$1""/EXTRACT_2B-S2_target.fasta" ]; then
-if [ -s "$1""/EXTRACT_2B-S2_target.fasta" ]; then
-x1="1"
-fi
-fi
-fi
-fi
-
-if [ "$x1" == "1" ]; then
+if [ -d "$1" ] && [ -s "$1""/EXTRACT_1A-S2_target.fasta" ] && [ -s "$1""/EXTRACT_2B-S2_target.fasta" ] && [ -s "$1""/EXTRACT_2X-S2_target.fasta" ]; then
   path=$2
   d1=$1
   echoerr "Data folder is $d1"
@@ -23,14 +12,14 @@ else
   echoerr "data_dir is a directory that must conatin 3 files with the following exact names, respectively:"
   echoerr "EXTRACT_1A-S2_target.fasta"
   echoerr "EXTRACT_2B-S2_target.fasta"
-  echoerr "EXTRACT_2B-S2_target.fasta"
+  echoerr "EXTRACT_2X-S2_target.fasta"
   echoerr ""
   echoerr "See README.txt for details"
   echoerr "Program not run"
   exit 1
 fi
 
-data_dir=${path}/bLactam_MIC_Rscripts
+data_dir=/predictor/bLactam_MIC_Rscripts
 
 AAseqDir="$d1""/PBP_to_MIC_temp"
 mkdir -p "${AAseqDir}"
@@ -58,12 +47,11 @@ grep -v ">" temp1.faa >> Sample_PBP2X_AA.faa
 rm -f temp*
 
 #
-scr1="${data_dir}/AAtoMICwrapper_2.sh"
-bash "${scr1}" "${AAseqDir}" "${data_dir}"
+bash "AAtoMICwrapper_2.sh" "${AAseqDir}" "${data_dir}"
 
 #
 fin="$AAseqDir"/Sample_PBPtype_MIC2_Prediction.csv
-scr1="$path/bLactam_MIC_Rscripts/MIC_format_with_SIR.R"
+scr1="/predictor/bLactam_MIC_Rscripts/MIC_format_with_SIR.R"
 Rscript "${scr1}" "${fin}"
 fout="$AAseqDir"/Sample_PBPtype_MIC2_Prediction.csv_MIC_formatted_with_SIR.csv
 
