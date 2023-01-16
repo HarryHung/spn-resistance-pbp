@@ -81,6 +81,3 @@ RUN cd /predictor \
 ENV PATH /predictor:$PATH
 
 WORKDIR /predictor/
-
-#ENTRYPOINT ["/bin/bash"]
-ENTRYPOINT ["/predictor/entrypoint.sh"]
