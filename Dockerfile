@@ -80,4 +80,6 @@ RUN cd /predictor \
 
 ENV PATH /predictor:$PATH
 
+ENV PATH /predictor/bLactam_MIC_Rscripts/:$PATH
+
 WORKDIR /predictor/
