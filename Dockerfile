@@ -72,7 +72,7 @@ COPY to_json.pl /predictor/
 
 COPY transeq.pl /predictor/
 
-COPY entrypoint.sh /predictor/
+COPY spn_pbp.sh /predictor/
 
 RUN cd /predictor \
       && chmod +x *.sh \
