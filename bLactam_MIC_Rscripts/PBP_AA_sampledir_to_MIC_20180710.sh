@@ -30,7 +30,7 @@ else
   exit 1
 fi
 
-data_dir=${path}/bLactam_MIC_Rscripts
+data_dir=/predictor/bLactam_MIC_Rscripts
 
 AAseqDir="$d1""/PBP_to_MIC_temp"
 mkdir -p "${AAseqDir}"
