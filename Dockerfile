@@ -72,14 +72,13 @@ COPY to_json.pl /predictor/
 
 COPY transeq.pl /predictor/
 
-COPY spn_pbp.sh /predictor/
+COPY spn_pbp /predictor/
 
 RUN cd /predictor \
       && chmod +x *.sh \
-      && chmod +x *.pl
+      && chmod +x *.pl \
+      && chmod +x spn_pbp
 
 ENV PATH /predictor:$PATH
 
 ENV PATH /predictor/bLactam_MIC_Rscripts/:$PATH
-
-WORKDIR /predictor/
