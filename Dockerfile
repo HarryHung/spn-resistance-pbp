@@ -1,6 +1,8 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.04 as app
 
 ARG DEBIAN_FRONTEND=noninteractive
+
+RUN mkdir ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
 
 RUN apt update \
       && apt install -y -q apt-transport-https software-properties-common \
@@ -82,3 +84,19 @@ RUN cd /predictor \
 ENV PATH /predictor:$PATH
 
 ENV PATH /predictor/bLactam_MIC_Rscripts/:$PATH
+
+
+# new base for testing
+FROM app as test
+
+RUN mkdir -p /test_data
+
+COPY test_data /test_data
+
+RUN spn_pbp_amr /test_data/contigs.fasta > result.json
+
+RUN apt update && apt install -y -q jq
+
+RUN jq --sort-keys . result.json > sorted_result.json && jq --sort-keys . /test_data/expected_result.json > sorted_expected_result.json
+
+RUN cmp sorted_result.json sorted_expected_result.json
