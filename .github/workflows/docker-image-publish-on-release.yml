@@ -4,6 +4,9 @@ on:
   release:
     types: [published]
 
+env:
+  IMAGE_NAME: spn-pbp-amr
+
 jobs:
   build-to-test:
     uses: ./.github/workflows/docker-image-build-to-test.yml
@@ -39,8 +42,8 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ github.event.repository.name }}
-            ghcr.io/${{ github.repository }}
+            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
+            ghcr.io/${{ env.IMAGE_NAME }}
           tags: |
             type=pep440,pattern={{version}}
       - name: Build and push Docker image
