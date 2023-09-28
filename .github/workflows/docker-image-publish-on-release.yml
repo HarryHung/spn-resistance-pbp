@@ -43,7 +43,7 @@ jobs:
         with:
           images: |
             ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}
-            ghcr.io/${{ env.IMAGE_NAME }}
+            ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
           tags: |
             type=pep440,pattern={{version}}
       - name: Build and push Docker image
