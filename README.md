@@ -1,16 +1,16 @@
-# PBP resistance predictor for S. pneumoniae
+# PBP resistance predictor for *S. pneumoniae*
 
 ## About
 
 ### Purpose
 
-This software is for the inference of beta-lactam resistance phenotype from the PBP genotype of Streptococcus pneumoniae.
+This software is for the inference of beta-lactam resistance phenotype from the PBP genotype of *Streptococcus pneumoniae*.
 
 ### History
 
 This is a fork of the [Pathogenwatch](https://pathogen.watch/)'s [Docker container](https://github.com/pathogenwatch-oss/spn-resistance-pbp) which is a modified version of [AMR predictor](https://github.com/BenJamesMetcalf/Spn_Scripts_Reference) by [Ben Metcalf](https://github.com/BenJamesMetcalf) at the Centre for Disease Control (CDC). Please credit the original authors in any resulting publication.
 
-Pathogenwatch's Docker container is used as a Docker Executable Image. This version provides a Docker enviornment, which is designed for integrating into the [GPS Unified Pipeline](https://github.com/HarryHung/gps-unified-pipeline) (a Nextflow Pipeline for processing Streptococcus pneumoniae sequencing raw reads).
+Pathogenwatch's Docker container is used as a Docker Executable Image. This version provides a Docker enviornment, which is designed for integrating into the [GPS Pipeline](https://github.com/GlobalPneumoSeq/gps-pipeline) (a Nextflow Pipeline for processing *Streptococcus pneumoniae* sequencing raw reads).
 
 ## Warning
 
